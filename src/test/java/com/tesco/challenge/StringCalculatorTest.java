@@ -117,4 +117,19 @@ public class StringCalculatorTest {
 
         instance.Add(numbers);
     }
+
+    /**
+     * Tests that the negative number appears in the exception message.
+     */
+    @Test
+    public void testNegativeNumberErrorMessage2Numbers() {
+        logger.log(Level.FINER, "testNegativeNumberErrorMessage2Numbers");
+
+        String numbers = "-1,-2";
+
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(StringContains.containsString("-1, -2"));
+
+        instance.Add(numbers);
+    }
 }

@@ -22,12 +22,21 @@ public class StringCalculator {
         }
         NumberParser parser = new NumberParser();
 
+        StringBuilder negativeNumbersErrorMessage = new StringBuilder();
         int sum = 0;
         for (Integer number : parser.getNumbers(input)) {
             if (isNegativeNumber(number)) {
-                throw new IllegalArgumentException("Negative numbers not allowed. Input contains: " + number);
+                if (negativeNumbersErrorMessage.length() == 0) {
+                    negativeNumbersErrorMessage.append("Negative numbers not allowed. Input contains: ");
+                }
+                negativeNumbersErrorMessage.append(number);
+                negativeNumbersErrorMessage.append(", ");
             }
             sum += number;
+        }
+        if (negativeNumbersErrorMessage.length() != 0) {
+            negativeNumbersErrorMessage.setLength(negativeNumbersErrorMessage.length() - 2);
+            throw new IllegalArgumentException(negativeNumbersErrorMessage.toString());
         }
         return sum;
     }

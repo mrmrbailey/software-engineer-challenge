@@ -119,3 +119,8 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Add testNegativeNumber to StringCalculatorTest Tests that passing a negative number throws an IllegalArgumentException.
 * Refactor code to throw an exception for a negative number.
 
+##Step 5 [Multiple negative numbers]
+
+* Added testNegativeNumberErrorMessage2Numbers - Tests that the negative number appears in the exception message.
+* Added Error Message builder. Not currently happy with the error message formation feel there is a better way to handle this, but in this instance it is passable.
+
