@@ -5,6 +5,8 @@
  */
 package com.tesco.challenge;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,13 +21,17 @@ public class NumberParser {
     private static final int CUSTOM_DELIMITER_NUMBERS_GROUP = 2;
 
     /**
-     * Parses the input and returns an array of numbers.
+     * Parses the input and returns an List of Integers.
      * <p>
      * @param input either "" or a delimited set of numbers.
-     * @return a parsed array of numbers from the input.
+     * @return a parsed List of Integers from the input.
      */
-    public String[] getNumbers(String input) {
-        return tokenise(input);
+    public List<Integer> getNumbers(String input) {
+        List<Integer> numbers = new ArrayList<>();
+        for (String number : tokenise(input)) {
+            numbers.add(Integer.valueOf(number));
+        }
+        return numbers;
     }
 
     private String[] tokenise(String input) {

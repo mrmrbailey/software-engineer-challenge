@@ -20,18 +20,12 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         }
-
         NumberParser parser = new NumberParser();
-        String[] allNumbers = parser.getNumbers(input);
 
         int sum = 0;
-        for (String number : allNumbers) {
-            sum += getInt(number);
+        for (Integer number : parser.getNumbers(input)) {
+            sum += number;
         }
         return sum;
-    }
-
-    private int getInt(String number) {
-        return Integer.parseInt(number);
     }
 }

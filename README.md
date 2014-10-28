@@ -107,3 +107,8 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Used tests in StringCalculator as basis for new tests in NumberParser.
 * Deleted tests in the StringCalculatorTest and only test for "", one number, which isn't really a special case but still feels right, 2 different numbers and 2 the same.
 
+##Step 5 [Move from String[] to List<Integer>]
+
+* Refactored NumberParser tests to expect a List<Integer>
+* Refactored code to reflect this.
+

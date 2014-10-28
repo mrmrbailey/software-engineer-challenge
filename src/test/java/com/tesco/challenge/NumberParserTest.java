@@ -5,6 +5,8 @@
  */
 package com.tesco.challenge;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Before;
@@ -34,11 +36,12 @@ public class NumberParserTest {
         logger.log(Level.FINER, "testParseOneNumber");
 
         String numbers = "1";
-        String[] expResult = {"1"};
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
 
-        String[] result = instance.getNumbers(numbers);
+        List<Integer> result = instance.getNumbers(numbers);
 
-        assertArrayEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -49,11 +52,13 @@ public class NumberParserTest {
         logger.log(Level.FINER, "testParseCommaDelimitedNumbers");
 
         String numbers = "1,2";
-        String[] expResult = {"1", "2"};
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
+        expResult.add(2);
 
-        String[] result = instance.getNumbers(numbers);
+        List<Integer> result = instance.getNumbers(numbers);
 
-        assertArrayEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -64,11 +69,13 @@ public class NumberParserTest {
         logger.log(Level.FINER, "testParseNumbersOnNewLines");
 
         String numbers = "1\n2";
-        String[] expResult = {"1", "2"};
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
+        expResult.add(2);
 
-        String[] result = instance.getNumbers(numbers);
+        List<Integer> result = instance.getNumbers(numbers);
 
-        assertArrayEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -79,11 +86,14 @@ public class NumberParserTest {
         logger.log(Level.FINER, "testParseMultipleDelimiters");
 
         String numbers = "1,2\n3";
-        String[] expResult = {"1", "2", "3"};
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
+        expResult.add(2);
+        expResult.add(3);
 
-        String[] result = instance.getNumbers(numbers);
+        List<Integer> result = instance.getNumbers(numbers);
 
-        assertArrayEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -94,10 +104,13 @@ public class NumberParserTest {
         logger.log(Level.FINER, "testParseCustomDelimiter");
 
         String numbers = "//;\n1;2;3";
-        String[] expResult = {"1", "2", "3"};
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
+        expResult.add(2);
+        expResult.add(3);
 
-        String[] result = instance.getNumbers(numbers);
+        List<Integer> result = instance.getNumbers(numbers);
 
-        assertArrayEquals(expResult, result);
+        assertEquals(expResult, result);
     }
 }
