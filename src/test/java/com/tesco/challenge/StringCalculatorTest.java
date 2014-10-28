@@ -130,4 +130,19 @@ public class StringCalculatorTest {
 
         assertEquals(expResult, result);
     }
+
+    /**
+     * Tests that numbers separated with with a custom delimiter returns their sum.
+     */
+    @Test
+    public void testAddNumbersWithCustomDelimiter() {
+        logger.log(Level.FINER, "testAddNumbersWithCustomDelimiter");
+
+        String numbers = "//;\n1;2";
+        int expResult = 3;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
 }

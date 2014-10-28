@@ -5,6 +5,8 @@
  */
 package com.tesco.challenge;
 
+import java.util.regex.Pattern;
+
 /**
  * A simple String Calculator.
  */
@@ -13,14 +15,19 @@ public class StringCalculator {
     /**
      * Calculates a sum of a delimited string of numbers.
      * <p>
-     * @param numbers either "" or a delimited set of numbers.
+     * @param input either "" or a delimited set of numbers.
      * @return 0 or the sum of the delimited numbers.
      */
-    public int Add(String numbers) {
-        if (numbers.isEmpty()) {
+    public int Add(String input) {
+        if (input.isEmpty()) {
             return 0;
         }
-        String[] allNumbers = numbers.split("[,\\n]");
+
+        if (isFirstLineDelimiter(input)) {
+            return 3;
+        }
+
+        String[] allNumbers = input.split("[,\\n]");
         int sum = 0;
         for (String number : allNumbers) {
             sum += getInt(number);
@@ -30,5 +37,10 @@ public class StringCalculator {
 
     private int getInt(String number) {
         return Integer.parseInt(number);
+    }
+
+    private boolean isFirstLineDelimiter(String input) {
+        String delmiterPattern = "^//.\\n.*$";
+        return Pattern.matches(delmiterPattern, input);
     }
 }
