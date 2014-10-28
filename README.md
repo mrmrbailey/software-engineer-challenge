@@ -92,3 +92,18 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * The purpose of this test is to validate refactoring, I expect it will survive refactoring.
 * Refactored code to create a tokeniser which will parse the input.
 
+##Step 5
+
+    5.	Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed.if there are multiple negatives, show all of them in the exception message
+
+* Looking at this new requirement I don't think a String array is now the best thing. So this is a good chance to take stock and reevalulate.
+  * It seems that we have two things going on here, a Adder and Parser. Maybe it was a mistake to assume this was a calculator.
+  * Decided to leave tests for now and refactor
+  * Moving the tokeniser block to a new NumberParser which will parse the input into a List<Integer> and refactor existing tests to handle this.
+* First things first lets refactor and keep the String[]
+* Moved tokenise to new class NumberParser and added a String[] getNumbers(input).
+* All tests still pass on the StringCalculator.
+* Copied tests from StringCalculator to NumberParser refactoring as I go to have both classes covered correctly.
+* Used tests in StringCalculator as basis for new tests in NumberParser.
+* Deleted tests in the StringCalculatorTest and only test for "", one number, which isn't really a special case but still feels right, 2 different numbers and 2 the same.
+
