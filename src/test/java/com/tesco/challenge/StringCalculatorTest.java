@@ -60,8 +60,8 @@ public class StringCalculatorTest {
      * Tests that passing 2 numbers returns their sum.
      */
     @Test
-    public void testAddTwoNumbers() {
-        logger.log(Level.FINER, "testAddTwoNumbers");
+    public void testAddTwoDifferentNumbers() {
+        logger.log(Level.FINER, "testAddTwoDifferentNumbers");
 
         String numbers = "1,2";
         int expResult = 3;
@@ -72,13 +72,13 @@ public class StringCalculatorTest {
     }
 
     /**
-     * Tests that passing 2 numbers returns their sum.
+     * Tests that passing 2 numbers the same returns their sum.
      */
     @Test
-    public void testAddTwoNumbers1and3() {
-        logger.log(Level.FINER, "testAddTwoNumbers1and3");
+    public void testAddTwoNumbersTheSame() {
+        logger.log(Level.FINER, "testAddTwoNumbersTheSame");
 
-        String numbers = "1,3";
+        String numbers = "2,2";
         int expResult = 4;
 
         int result = instance.Add(numbers);

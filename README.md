@@ -43,4 +43,9 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 
 * Clearly the above code is suspect so added a test to fail Added test testAddTwoNumbers1and3 - Tests that passing 2 numbers returns their sum.
 * Refactored code to split the numbers if a "," is in the input.
-* looking at Add we now have 3 Integer.ParseInt(String) is going to be popular so pulled that out to a getInt(String).
+* Looking at Add we now have 3 Integer.ParseInt(String) is going to be popular so pulled that out to a getInt(String).
+
+##Step 1 Finished
+
+* Looking at my tests does 1,2 really differ from 1,3. A more important test is two numbers the same. so refactored test deleted 1,3 and added test 2,2
+* All tests passed so no need to refactor class.
