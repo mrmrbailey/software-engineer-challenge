@@ -24,8 +24,15 @@ public class StringCalculator {
 
         int sum = 0;
         for (Integer number : parser.getNumbers(input)) {
+            if (isNegativeNumber(number)) {
+                throw new IllegalArgumentException("Negative numbers not allowed. Input contains: " + number);
+            }
             sum += number;
         }
         return sum;
+    }
+
+    private boolean isNegativeNumber(Integer number) {
+        return number < 0;
     }
 }

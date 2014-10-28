@@ -113,4 +113,21 @@ public class NumberParserTest {
 
         assertEquals(expResult, result);
     }
+
+    /**
+     * Tests that negative numbers parse correctly.
+     */
+    @Test
+    public void testParseNegativeNumbers() {
+        logger.log(Level.FINER, "testParseNegativeNumbers");
+
+        String numbers = "-1,2";
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(-1);
+        expResult.add(2);
+
+        List<Integer> result = instance.getNumbers(numbers);
+
+        assertEquals(expResult, result);
+    }
 }

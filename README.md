@@ -112,3 +112,10 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Refactored NumberParser tests to expect a List<Integer>
 * Refactored code to reflect this.
 
+##Step 5 [Test for negative numbers.]
+
+* Added testParseNegativeNumbers to NumberParserTest - Tests that negative numbers parse correctly.
+* Test passes so continue.
+* Add testNegativeNumber to StringCalculatorTest Tests that passing a negative number throws an IllegalArgumentException.
+* Refactor code to throw an exception for a negative number.
+

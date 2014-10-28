@@ -7,8 +7,11 @@ package com.tesco.challenge;
  */
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.hamcrest.core.StringContains;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -20,6 +23,9 @@ public class StringCalculatorTest {
     private static final Logger logger = Logger.getLogger(StringCalculatorTest.class.getName());
 
     private StringCalculator instance;
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Before
     public void createCalculator() {
@@ -84,5 +90,31 @@ public class StringCalculatorTest {
         int result = instance.Add(numbers);
 
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Tests that passing a negative number throws an IllegalArgumentException.
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void testNegativeNumber() {
+        logger.log(Level.FINER, "testNegativeNumber");
+
+        String numbers = "-1";
+        instance.Add(numbers);
+    }
+
+    /**
+     * Tests that the negative number appears in the exception message.
+     */
+    @Test
+    public void testNegativeNumberErrorMessage() {
+        logger.log(Level.FINER, "testNegativeNumberErrorMessage");
+
+        String numbers = "-1";
+
+        exception.expect(IllegalArgumentException.class);
+        exception.expectMessage(StringContains.containsString("-1"));
+
+        instance.Add(numbers);
     }
 }
