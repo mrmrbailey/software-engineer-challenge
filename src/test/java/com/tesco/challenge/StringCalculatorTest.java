@@ -71,4 +71,18 @@ public class StringCalculatorTest {
         assertEquals(expResult, result);
     }
 
+    /**
+     * Tests that passing 2 numbers returns their sum.
+     */
+    @Test
+    public void testAddTwoNumbers1and3() {
+        logger.log(Level.FINER, "testAddTwoNumbers1and3");
+
+        String numbers = "1,3";
+        int expResult = 4;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
 }

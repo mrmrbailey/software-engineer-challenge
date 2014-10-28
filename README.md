@@ -38,3 +38,9 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Added test testAddTwoNumbers - Tests that passing 2 numbers returns their sum.
 * Realised I am going to be creating a new instance in every test so pulled that into a @before setup
 * Refactored code to test for existance of a "," and returned 3 if it existed
+
+##Step 1 - and two numbers again
+
+* Clearly the above code is suspect so added a test to fail Added test testAddTwoNumbers1and3 - Tests that passing 2 numbers returns their sum.
+* Refactored code to split the numbers if a "," is in the input.
+* looking at Add we now have 3 Integer.ParseInt(String) is going to be popular so pulled that out to a getInt(String).
