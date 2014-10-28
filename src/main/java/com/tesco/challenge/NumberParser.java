@@ -17,6 +17,7 @@ public class NumberParser {
 
     private static final String DEFAULT_DELIMITER_PATTERN = "[,\\n]";
     private static final String CUSTOM_DELIMITER_PATTERN = "^//((.)|\\[(.*)\\])\\n(.*)$";
+    private static final String MULTIPLE_CUSTOM_DELIMITERS_PATTERN = "\\]\\[";
 
     private static final int SINGLE_CHAR_CUSTOM_DELIMITER_DELIMITER_GROUP = 1;
     private static final int MULTIPLE_CHAR_CUSTOM_DELIMITER_DELIMITER_GROUP = 3;
@@ -53,11 +54,16 @@ public class NumberParser {
         if (!delimiterMatcher.matches()) {
             throw new IllegalArgumentException("Unable to parse input: " + input);
         }
-        String delimiter = getDelimiter(delimiterMatcher);
-        return delimiterMatcher.group(CUSTOM_DELIMITER_NUMBERS_GROUP).replace(delimiter, DEFAULT_DELIMITER);
+        String delimiters = getDelimiters(delimiterMatcher);
+
+        String numbers = delimiterMatcher.group(CUSTOM_DELIMITER_NUMBERS_GROUP);
+        for (String delimiter : delimiters.split(MULTIPLE_CUSTOM_DELIMITERS_PATTERN)) {
+            numbers = numbers.replace(delimiter, DEFAULT_DELIMITER);
+        }
+        return numbers;
     }
 
-    private String getDelimiter(Matcher delimiterMatcher) {
+    private String getDelimiters(Matcher delimiterMatcher) {
         if (delimiterMatcher.group(MULTIPLE_CHAR_CUSTOM_DELIMITER_DELIMITER_GROUP) != null) {
             return delimiterMatcher.group(MULTIPLE_CHAR_CUSTOM_DELIMITER_DELIMITER_GROUP);
         } else {

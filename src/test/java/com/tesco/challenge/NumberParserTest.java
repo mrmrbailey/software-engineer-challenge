@@ -149,6 +149,24 @@ public class NumberParserTest {
     }
 
     /**
+     * Tests that numbers separated with a multiple custom delimiters parses correctly.
+     */
+    @Test
+    public void testParseMultipleCustomDelimiters() {
+        logger.log(Level.FINER, "testParseMultipleCustomDelimiters");
+
+        String numbers = "//[*][%]\n1*2%3";
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
+        expResult.add(2);
+        expResult.add(3);
+
+        List<Integer> result = instance.getNumbers(numbers);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
      * Tests that negative numbers parse correctly.
      */
     @Test
