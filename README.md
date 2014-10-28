@@ -33,3 +33,8 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Add test testAddOneNumber() - Tests that adding one number returns that number.
 * Fixed failing test
 
+##Step 1 - and two numbers
+
+* Added test testAddTwoNumbers - Tests that passing 2 numbers returns their sum.
+* Realised I am going to be creating a new instance in every test so pulled that into a @before setup
+* Refactored code to test for existance of a "," and returned 3 if it existed
