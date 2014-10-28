@@ -124,3 +124,12 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Added testNegativeNumberErrorMessage2Numbers - Tests that the negative number appears in the exception message.
 * Added Error Message builder. Not currently happy with the error message formation feel there is a better way to handle this, but in this instance it is passable.
 
+##Step 6
+
+    6.	Numbers bigger than 1000 should be ignored, so adding 2 + 1001  = 2
+
+* Added testBigNumberIsIgnored - Test that when passing a big number that number is ignored. that validates that 1001 is ignored.
+* Added isNumberValid.
+* Still not happy with the error messaging, but no reason to change.
+* Added testBiggestNumberIsAdded - Test that when passing the biggest number allowed that number is added.
+

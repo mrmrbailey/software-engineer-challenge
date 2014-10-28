@@ -93,6 +93,36 @@ public class StringCalculatorTest {
     }
 
     /**
+     * Test that when passing the biggest number allowed that number is added.
+     */
+    @Test
+    public void testBiggestNumberIsAdded() {
+        logger.log(Level.FINER, "testBigNumberIsIgnored");
+
+        String numbers = "1,1000";
+        int expResult = 1001;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test that when passing a big number that number is ignored.
+     */
+    @Test
+    public void testBigNumberIsIgnored() {
+        logger.log(Level.FINER, "testBigNumberIsIgnored");
+
+        String numbers = "1,1001";
+        int expResult = 1;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
      * Tests that passing a negative number throws an IllegalArgumentException.
      */
     @Test(expected = IllegalArgumentException.class)
