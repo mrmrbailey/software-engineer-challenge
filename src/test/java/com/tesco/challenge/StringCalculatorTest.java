@@ -85,4 +85,19 @@ public class StringCalculatorTest {
 
         assertEquals(expResult, result);
     }
+
+    /**
+     * Tests that passing 3 numbers returns their sum.
+     */
+    @Test
+    public void testAddThreeNumbers() {
+        logger.log(Level.FINER, "testAddThreeNumbers");
+
+        String numbers = "1,2,3";
+        int expResult = 6;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
 }

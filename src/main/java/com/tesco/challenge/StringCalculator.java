@@ -13,19 +13,19 @@ public class StringCalculator {
     /**
      * Calculates a sum of a delimited string of numbers.
      * <p>
-     * @param numbers either "", a single number or a comma separated pair of numbers.
+     * @param numbers either "", a single number or a comma delimited set of numbers.
      * @return the sum of the delimited numbers or if the empty string is passed 0.
      */
     public int Add(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
         }
-        if (numbers.contains(",")) {
-            String[] bothNumbers = numbers.split(",");
-            return getInt(bothNumbers[0]) + getInt(bothNumbers[1]);
-        } else {
-            return getInt(numbers);
+        String[] allNumbers = numbers.split(",");
+        int sum = 0;
+        for (String number : allNumbers) {
+            sum += getInt(number);
         }
+        return sum;
     }
 
     private int getInt(String number) {

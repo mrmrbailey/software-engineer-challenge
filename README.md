@@ -49,3 +49,13 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 
 * Looking at my tests does 1,2 really differ from 1,3. A more important test is two numbers the same. so refactored test deleted 1,3 and added test 2,2
 * All tests passed so no need to refactor class.
+
+##Step 2
+
+    2.	Allow the Add method to handle an unknown amount of numbers
+
+* Added test testAddThreeNumbers - Tests that passing 3 numbers returns their sum. that validates "1,2,3" returns 6.
+* Fixed failing test by amending "getInt(bothNumbers[0]) + getInt(bothNumbers[1]);" to iterate the array adding to a total.
+* Refactored now that the numbers.contains(",") is now redundant.
+* Considered adding a test for 3 numbers the same but feel that it is not required.
+* Feeling a bit worried that the input isn't being validated at all but continuing none the less, a NumberFormatException will protect us for now.
