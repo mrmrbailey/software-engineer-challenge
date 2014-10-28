@@ -142,3 +142,8 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Recreated testParseCustomDelimiter2Chars - Tests that numbers separated with a custom delimiter parses correctly. that validates "//[;;]\n1;;2".
 * Amended regex and refactored to create a parseNumber method.
 
+##Step 7 [Special Chars]
+
+* Uncommented out testParseCustomDelimiter2SpecialChars
+* Refactored code to replace any delimiter with a default one.
+

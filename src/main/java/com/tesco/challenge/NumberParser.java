@@ -15,12 +15,14 @@ import java.util.regex.Pattern;
  */
 public class NumberParser {
 
-    private static final String DEFAULT_DELIMITER = "[,\\n]";
+    private static final String DEFAULT_DELIMITER_PATTERN = "[,\\n]";
     private static final String CUSTOM_DELIMITER_PATTERN = "^//((.)|\\[(.*)\\])\\n(.*)$";
 
     private static final int SINGLE_CHAR_CUSTOM_DELIMITER_DELIMITER_GROUP = 1;
     private static final int MULTIPLE_CHAR_CUSTOM_DELIMITER_DELIMITER_GROUP = 3;
     private static final int CUSTOM_DELIMITER_NUMBERS_GROUP = 4;
+
+    private static final String DEFAULT_DELIMITER = ",";
 
     /**
      * Parses the input and returns an List of Integers.
@@ -37,21 +39,22 @@ public class NumberParser {
     }
 
     private String[] tokenise(String input) {
-        return parseNumbers(input);
+        String numbers = parseNumbers(input);
+        return numbers.split(DEFAULT_DELIMITER);
     }
 
-    private String[] parseNumbers(String input) {
-        String delimiter = DEFAULT_DELIMITER;
-        String numbers = input;
-        if (input.startsWith("//")) {
-            Matcher delimiterMatcher = Pattern.compile(CUSTOM_DELIMITER_PATTERN).matcher(input);
-            if (!delimiterMatcher.matches()) {
-                throw new IllegalArgumentException("Unable to parse input: " + input);
-            }
-            delimiter = getDelimiter(delimiterMatcher);
-            numbers = delimiterMatcher.group(CUSTOM_DELIMITER_NUMBERS_GROUP);
+    private String parseNumbers(String input) {
+
+        if (!input.startsWith("//")) {
+            return input.replaceAll(DEFAULT_DELIMITER_PATTERN, DEFAULT_DELIMITER);
         }
-        return numbers.split(delimiter);
+
+        Matcher delimiterMatcher = Pattern.compile(CUSTOM_DELIMITER_PATTERN).matcher(input);
+        if (!delimiterMatcher.matches()) {
+            throw new IllegalArgumentException("Unable to parse input: " + input);
+        }
+        String delimiter = getDelimiter(delimiterMatcher);
+        return delimiterMatcher.group(CUSTOM_DELIMITER_NUMBERS_GROUP).replace(delimiter, DEFAULT_DELIMITER);
     }
 
     private String getDelimiter(Matcher delimiterMatcher) {
