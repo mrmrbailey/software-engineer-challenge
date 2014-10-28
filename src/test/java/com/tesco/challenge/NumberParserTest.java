@@ -97,7 +97,7 @@ public class NumberParserTest {
     }
 
     /**
-     * Tests that numbers separated with with a custom delimiter parses correctly.
+     * Tests that numbers separated with a custom delimiter parses correctly.
      */
     @Test
     public void testParseCustomDelimiter() {
@@ -114,6 +114,40 @@ public class NumberParserTest {
         assertEquals(expResult, result);
     }
 
+    /**
+     * Tests that numbers separated with a custom delimiter parses correctly.
+     */
+    @Test
+    public void testParseCustomDelimiter2Chars() {
+        logger.log(Level.FINER, "testParseCustomDelimiter2Chars");
+
+        String numbers = "//[;;]\n1;;2";
+        List<Integer> expResult = new ArrayList<>();
+        expResult.add(1);
+        expResult.add(2);
+
+        List<Integer> result = instance.getNumbers(numbers);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Tests that numbers separated with a custom delimiter containing special characters parses correctly.
+     */
+    /*    @Test
+     public void testParseCustomDelimiter2SpecialChars() {
+     logger.log(Level.FINER, "testParseCustomDelimiter2SpecialChars");
+
+     String numbers = "//[**]\n1**2";
+     List<Integer> expResult = new ArrayList<>();
+     expResult.add(1);
+     expResult.add(2);
+
+     List<Integer> result = instance.getNumbers(numbers);
+
+     assertEquals(expResult, result);
+     }
+     */
     /**
      * Tests that negative numbers parse correctly.
      */

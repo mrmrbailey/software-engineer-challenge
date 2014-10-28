@@ -133,3 +133,12 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Still not happy with the error messaging, but no reason to change.
 * Added testBiggestNumberIsAdded - Test that when passing the biggest number allowed that number is added.
 
+##Step 7
+
+    7.	Delimiters can be of any length with the following format:  “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6
+
+* Added testParseCustomDelimiter2Chars - Tests that numbers separated with a custom delimiter parses correctly. that validates "//[**]\n1**2".
+* During refactoring noticed error with String.split on a ** so renamed that testParseCustomDelimiter2SpecialChars - Tests that numbers separated with a custom delimiter containing special characters parses correctly.
+* Recreated testParseCustomDelimiter2Chars - Tests that numbers separated with a custom delimiter parses correctly. that validates "//[;;]\n1;;2".
+* Amended regex and refactored to create a parseNumber method.
+
