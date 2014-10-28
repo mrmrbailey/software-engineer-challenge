@@ -86,3 +86,9 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Add test testAddNumbersWithCustomDelimiter - Tests that numbers separated with with a custom delimiter returns their sum. that validates “//;\n1;2” returns 3;
 * Simple refactoring to test for custom delimiter pattern. Only returns 3 to pass the test.
 
+##Step 4 [Add parsing]
+
+* Add test for testAdd3NumbersWithCustomDelimiter - Tests that 3 numbers separated with with a custom delimiter returns their sum. that validates "//:\n1;2;3" returns 6;
+* The purpose of this test is to validate refactoring, I expect it will survive refactoring.
+* Refactored code to create a tokeniser which will parse the input.
+
