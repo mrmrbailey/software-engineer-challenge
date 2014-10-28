@@ -72,3 +72,8 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Added test testAddTwoNumbersOnNewLines - Tests that passing 2 numbers new line delimited returns their sum. that validates "1\n2" returns 3
 * refactored code slightly to split on [,\\n] rather than ",".
 
+##Step 3 [Handle Mixed New Line Delimiter]
+
+* Renamed test testAddThreeNumbers to testAddMultipleDelimiters - Tests that passing numbers with a , and a new line returns their sum. that validates  "1,2\n3" returns 6.
+* Test passed without refactoring.
+

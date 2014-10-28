@@ -87,13 +87,13 @@ public class StringCalculatorTest {
     }
 
     /**
-     * Tests that passing 3 numbers returns their sum.
+     * Tests that passing numbers with a , and a new line returns their sum.
      */
     @Test
-    public void testAddThreeNumbers() {
+    public void testAddMultipleDelimiters() {
         logger.log(Level.FINER, "testAddThreeNumbers");
 
-        String numbers = "1,2,3";
+        String numbers = "1,2\n3";
         int expResult = 6;
 
         int result = instance.Add(numbers);
