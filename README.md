@@ -151,6 +151,12 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 
     8.	Allow multiple delimiters like this:  “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.
 
-* Added test testParseMultipleCustomDelimiters -  Tests that numbers separated with a multiple custom delimiters parses correctly. validates "//[*][%]\\n1*2%3"
+* Added test testParseMultipleCustomDelimiters - Tests that numbers separated with a multiple custom delimiters parses correctly. validates "//[*][%]\\n1*2%3"
 * Refactored parseNumbers to iterate through each delimiter.
 
+##Step 9
+
+    9.	make sure you can also handle multiple delimiters with length longer than one char
+
+* Added test testParseMultipleCustomDelimiters2Chars - Tests that numbers separated with a multiple custom delimiters of 2 characters parses correctly. validates "//[**][%;]\n1**2%;3"
+* The test passes without refactoring.
