@@ -14,9 +14,12 @@ public class StringCalculator {
      * Calculates a sum of a delimited string of numbers.
      * <p>
      * @param numbers either "", a single number or a comma separated pair of numbers.
-     * @return 0
+     * @return 0 for the empty string or parses the input.
      */
     public int Add(String numbers) {
-        return 0;
+        if (numbers.isEmpty()) {
+            return 0;
+        }
+        return Integer.parseInt(numbers);
     }
 }

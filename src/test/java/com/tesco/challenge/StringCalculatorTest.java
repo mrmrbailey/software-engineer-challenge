@@ -5,7 +5,6 @@ package com.tesco.challenge;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -17,7 +16,7 @@ import static org.junit.Assert.*;
  */
 public class StringCalculatorTest {
 
-  private static final Logger logger = Logger.getLogger(StringCalculatorTest.class.getName());
+    private static final Logger logger = Logger.getLogger(StringCalculatorTest.class.getName());
 
     /**
      * Tests that passing an empty string returns 0.
@@ -34,4 +33,22 @@ public class StringCalculatorTest {
 
         assertEquals(expResult, result);
     }
+
+    /**
+     * Tests that passing one number returns that number.
+     */
+    @Test
+    public void testAddOneNumber() {
+        logger.log(Level.FINER, "testAddOneNumber");
+
+        String numbers = "1";
+
+        int expResult = 1;
+
+        StringCalculator instance = new StringCalculator();
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
+
 }

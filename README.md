@@ -27,3 +27,9 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Move empty test to StringCalculatorTest in com.tesco.challenge
 * Wrote a test testAddEmptyString which creates a new StringCalculator and asserts that Add("") returns 0;
 * Made test compile by creating new class StringCalculator with an public int Add(numbers) which always returns 0;
+
+##Step 1 - and move to 1 [number]
+
+* Add test testAddOneNumber() - Tests that adding one number returns that number.
+* Fixed failing test
+
