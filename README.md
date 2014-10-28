@@ -59,3 +59,16 @@ This project is my steps through the Tesco Software Engineer Challenge, and this
 * Refactored now that the numbers.contains(",") is now redundant.
 * Considered adding a test for 3 numbers the same but feel that it is not required.
 * Feeling a bit worried that the input isn't being validated at all but continuing none the less, a NumberFormatException will protect us for now.
+
+##Step 3 [Handle New Line Delimiter]
+
+    3.	Allow the Add method to handle new lines between numbers (instead of commas).
+        1.	the following input is ok:  “1\n2,3”  (will equal 6)
+        2.	the following input is NOT ok:  “1,\n” (not need to prove it - just clarifying)
+
+* Before adding test for newline delimited created a new test, exactly the same as testAddTwoDifferentNumbers called testAddTwoCommaDelimitedNumbers - Tests that passing 2 numbers comma delimited returns their sum.
+* Test passed obviously.
+* Debated deleting either add 2 numbers or add 3 numbers but left them alone for now. I will keep an eye on their value going forward.
+* Added test testAddTwoNumbersOnNewLines - Tests that passing 2 numbers new line delimited returns their sum. that validates "1\n2" returns 3
+* refactored code slightly to split on [,\\n] rather than ",".
+

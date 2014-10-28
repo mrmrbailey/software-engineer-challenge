@@ -100,4 +100,34 @@ public class StringCalculatorTest {
 
         assertEquals(expResult, result);
     }
+
+    /**
+     * Tests that passing 2 numbers comma delimited returns their sum.
+     */
+    @Test
+    public void testAddTwoCommaDelimitedNumbers() {
+        logger.log(Level.FINER, "testAddTwoCommaDelimitedNumbers");
+
+        String numbers = "1,2";
+        int expResult = 3;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Tests that passing 2 numbers new line delimited returns their sum.
+     */
+    @Test
+    public void testAddTwoNumbersOnNewLines() {
+        logger.log(Level.FINER, "testAddTwoNumbersOnNewLines");
+
+        String numbers = "1\n2";
+        int expResult = 3;
+
+        int result = instance.Add(numbers);
+
+        assertEquals(expResult, result);
+    }
 }
